@@ -1,0 +1,4 @@
+$(function () {
+    svg4everybody({})
+
+})
