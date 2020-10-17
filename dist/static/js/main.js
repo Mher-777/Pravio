@@ -39,6 +39,7 @@ $(function () {
     var info = $('.header__info');
     var phone = $('.header__phone');
     var header = $('.header');
+    var body = $('body');
 
     function responsivePhone() {
       var w = $(window).width();
@@ -48,8 +49,10 @@ $(function () {
           phone.remove();
           menu.append(phone);
           phone.addClass('header__phone--open');
+          body.addClass('hidden');
         } else {
           phone.removeClass('header__phone--open');
+          body.removeClass('hidden');
           $('.header__inner > *:nth-child(1)').after(phone);
         }
       } else {
@@ -63,6 +66,7 @@ $(function () {
       menu.slideToggle();
       header.toggleClass('header--open');
       info.toggleClass('header__info--open');
+      body.toggleClass('hidden');
       responsivePhone();
     });
 
@@ -74,6 +78,7 @@ $(function () {
         menu.removeAttr('style');
         header.removeClass('header--open');
         info.removeClass('header__info--open');
+        body.removeClass('hidden');
       }
     }
 
@@ -87,3 +92,25 @@ $(function () {
   menu();
   headerUser();
 });
+
+var headerSticky = function headerSticky() {
+  var scrollPrev = 0;
+  var header = document.querySelector('.header');
+  window.addEventListener('scroll', function () {
+    var scrolled = window.scrollY;
+
+    if (scrolled >= 30 && scrolled > scrollPrev) {
+      header.style.top = -header.offsetHeight + 'px';
+      header.classList.remove('header--sticky');
+    } else if (scrolled === 0) {
+      header.classList.remove('header--sticky');
+    } else {
+      header.style.top = 0;
+      header.classList.add('header--sticky');
+    }
+
+    scrollPrev = scrolled;
+  });
+};
+
+headerSticky();

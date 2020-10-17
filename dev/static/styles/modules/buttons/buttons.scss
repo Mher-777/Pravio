@@ -7,6 +7,7 @@
   font-weight: 700;
   color: var(--color-white);
   transition: all linear .2s;
+  cursor: pointer;
   &--color {
     &-green {
       color: var(--color-green);
@@ -15,6 +16,9 @@
   &--bg {
     &-white {
       background-color: var(--color-white);
+    }
+    &-orange {
+      background-color: var(--color-btn);
     }
   }
   &-icon {
@@ -25,6 +29,17 @@
         fill: var(--color-green);
       }
     }
+  }
+}
+@media (max-width: 500px) {
+  .btn {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+@media (max-width: 340px) {
+  .btn {
+    padding: 10px 8px;
   }
 }
 @import "hamburger";
