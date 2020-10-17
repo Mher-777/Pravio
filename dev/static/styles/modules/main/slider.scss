@@ -1,0 +1,9 @@
+.slider{
+  &__bg {
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position:  center;
+  }
+}

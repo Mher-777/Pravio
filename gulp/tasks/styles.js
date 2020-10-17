@@ -19,7 +19,7 @@ module.exports = function styles() {
       overrideBrowserslist:  [ "last 4 version" ],
       cascade: false
     }))
-      .pipe(shorthand())
+    .pipe(shorthand())
     .pipe(gulpif(argv.prod, cleanCSS({
       debug: true,
       compatibility: '*'
