@@ -8,9 +8,15 @@
   color: var(--color-white);
   transition: all linear .2s;
   cursor: pointer;
+  text-align: center;
   &--color {
     &-green {
       color: var(--color-green);
+    }
+  }
+  &--border {
+    &-radius {
+      border-radius: 20px;
     }
   }
   &--bg {

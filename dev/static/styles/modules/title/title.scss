@@ -8,6 +8,9 @@
     &-bg {
       color: var(--color-bg);
     }
+    &-gray {
+      color: var(--color-gray);
+    }
   }
   &--align {
     &-center {
@@ -22,6 +25,10 @@
     &-small {
       font-size: 36px;
       line-height: 40px;
+    }
+    &-tiny {
+      font-size: 20px;
+      line-height: 26px;
     }
   }
 }
@@ -49,6 +56,10 @@
       &-small {
         font-size: 26px;
         line-height: 32px;
+      }
+      &-tiny {
+        font-size: 18px;
+        line-height: 24px;
       }
     }
   }
@@ -78,6 +89,10 @@
         font-size: 22px;
         line-height: 28px;
       }
+      &-tiny {
+        font-size: 16px;
+        line-height: 20px;
+      }
     }
   }
 }
@@ -87,6 +102,10 @@
       &-big {
         font-size: 20px;
         line-height: 22px;
+      }
+      &-tiny {
+        font-size: 14px;
+        line-height: 18px;
       }
     }
   }

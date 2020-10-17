@@ -290,7 +290,6 @@
   }
   .slider {
     overflow: hidden;
-    padding-bottom: 100px;
   }
   .slider__form-decor--2 {
     right: 0;
@@ -369,6 +368,9 @@
   .slider__form-decor--4 {
     right: -200px;
     top: -70px;
+  }
+  .slider {
+    padding-bottom: 100px;
   }
 }
 

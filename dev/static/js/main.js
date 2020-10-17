@@ -79,8 +79,47 @@ $(function () {
             responsiveMenu()
         });
     }
+    const certificatesSlider = () => {
+        $('.certificates__slider').slick({
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            touchThreshold: 40,
+            appendArrows: '.certificates__arrows',
+            nextArrow: '<button class="section-arrow section-arrow--bg-green section-arrow--next"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>',
+            prevArrow: '<button class="section-arrow section-arrow--bg-green section-arrow--prev"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>',
+            responsive: [
+                {
+                    breakpoint: 1131,
+                    settings: {
+                        slidesToShow: 5,
+                    }
+                },
+                {
+                    breakpoint: 973,
+                    settings: {
+                        slidesToShow: 4,
+                    }
+                },
+                {
+                    breakpoint: 773,
+                    settings: {
+                        slidesToShow: 3,
+                        rows: 2
+                    }
+                },
+                {
+                    breakpoint: 451,
+                    settings: {
+                        slidesToShow: 2,
+                        rows: 2
+                    }
+                }
+            ]
+        })
+    }
     menu()
     headerUser()
+    certificatesSlider()
 })
 const headerSticky = () => {
     let scrollPrev = 0;
