@@ -13,6 +13,9 @@
     &-green {
       color: var(--color-green);
     }
+    &-bg {
+      color: var(--color-bg);
+    }
   }
   &--border {
     &-radius {
@@ -25,6 +28,9 @@
     }
     &-orange {
       background-color: var(--color-btn);
+    }
+    &-green {
+      background-color: var(--color-green);
     }
   }
   &-icon {

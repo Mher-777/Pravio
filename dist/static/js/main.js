@@ -123,9 +123,55 @@ $(function () {
     });
   };
 
+  var teamSlider = function teamSlider() {
+    var link = $(".team__tab-link");
+    $('.team__slider').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      touchThreshold: 40,
+      appendArrows: '.team__arrows',
+      nextArrow: '<button class="section-arrow section-arrow--bg-green section-arrow--next"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>',
+      prevArrow: '<button class="section-arrow section-arrow--bg-green section-arrow--prev"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>'
+    }).on('afterChange', function () {
+      var dataId = $('.slick-current').attr("data-slick-index");
+      link.each(function () {
+        if ($(this).attr('data-id') === dataId) {
+          link.parent().removeClass('team__tab--active');
+          $(this).parent().addClass('team__tab--active');
+        }
+      });
+    });
+    link.on("click", function (e) {
+      e.preventDefault();
+      $('.team__slider').slick('slickGoTo', $(this).attr('data-id'));
+      link.parent().removeClass('team__tab--active');
+      $(this).parent().addClass('team__tab--active');
+    });
+  };
+
+  var reviewsSlider = function reviewsSlider() {
+    $('.reviews__slider').slick({
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      appendArrows: '.reviews__arrows',
+      touchThreshold: 40,
+      nextArrow: '<button class="section-arrow section-arrow--bg-green section-arrow--next"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>',
+      prevArrow: '<button class="section-arrow section-arrow--bg-green section-arrow--prev"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>',
+      responsive: [{
+        breakpoint: 793,
+        settings: {
+          rows: 2,
+          slidesToShow: 1
+        }
+      }]
+    });
+  };
+
   menu();
   headerUser();
   certificatesSlider();
+  teamSlider();
+  reviewsSlider();
 });
 
 var headerSticky = function headerSticky() {

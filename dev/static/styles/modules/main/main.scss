@@ -97,13 +97,12 @@
       margin-right: -100px;
     }
   }
-  .certificates__arrows {
+  .section-top__arrows {
     margin-top: auto;
   }
-}
-@media (max-width: 420px) {
-
 }
 @import "slider";
 @import "partners";
 @import "certificates";
+@import "team";
+@import "reviews";
