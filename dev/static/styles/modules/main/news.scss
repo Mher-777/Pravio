@@ -1,0 +1,120 @@
+.news {
+  padding: 100px 0;
+  &__row {
+    display: flex;
+    align-items: flex-start;
+    margin-left: -30px;
+    margin-top: 20px;
+  }
+  &__col {
+    margin-left: 30px;
+    width: calc(33.33333% - 30px);
+    &-thumbnail {
+      border-radius: 20px;
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+      background-size: cover;
+      background-position:  center;
+      min-height: 170px;
+      position: relative;
+    }
+    &-day {
+      min-width: 130px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px 0px;
+      background-color: rgba(#fff, .8);
+      padding: 5px 20px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+  &__link {
+    padding: 15px 55px;
+    &-text {
+      font-family: "Mont", Arial, sans-serif;
+      font-weight: 700;
+    }
+  }
+}
+@media (max-width: 1100px) {
+  .news__link {
+    padding: 15px 25px;
+  }
+}
+@media (max-width: 940px) {
+  .news__row {
+    margin-left: -15px;
+  }
+  .news__col {
+    width: calc(33.3333333% - 15px);
+    margin-left: 15px;
+  }
+  .news__link {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+@media (max-width: 772px) {
+  .news__row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .news__row {
+    margin-left: -20px;
+  }
+  .news__col {
+    width: calc(50% - 20px);
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 550px) {
+  .news__row {
+    margin-left: -10px;
+  }
+  .news__col {
+    width: calc(50% - 10px);
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 500px) {
+  .news__row {
+    margin-left: 0;
+    display: block;
+  }
+  .news__col {
+    width: 100%;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+  }
+  .news__link {
+    padding: 10px 25px;
+  }
+  .news {
+    padding: 50px 0;
+  }
+}
+@media (max-width: 340px) {
+  .news__link-text {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .news__link {
+    padding: 10px 15px;
+  }
+  .news__col-thumbnail {
+    min-height: 140px;
+  }
+  .news__col-day {
+    min-width: 36px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
