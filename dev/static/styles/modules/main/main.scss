@@ -98,6 +98,9 @@
       margin-right: -100px;
     }
   }
+  .section-top__title--margin {
+    margin-right: 0;
+  }
   .section-top__arrows {
     margin-top: auto;
   }
@@ -112,3 +115,5 @@
 @import "question";
 @import "answers";
 @import "category";
+@import "information";
+@import "banner";

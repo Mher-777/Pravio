@@ -126,6 +126,14 @@ $(function () {
             appendArrows: '.team__arrows',
             nextArrow: '<button class="section-arrow section-arrow--bg-green section-arrow--next"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>',
             prevArrow: '<button class="section-arrow section-arrow--bg-green section-arrow--prev"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>',
+            responsive: [
+                {
+                    breakpoint: 661,
+                    settings: {
+                        fade: true
+                    }
+                }
+            ]
         }).on('afterChange', function() {
             let dataId = $('.slick-current').attr("data-slick-index");
             link.each(function () {
@@ -156,6 +164,7 @@ $(function () {
                     settings: {
                         rows: 2,
                         slidesToShow: 1,
+                        fade: true
                     }
                 }
             ]
@@ -193,12 +202,39 @@ $(function () {
             previewResponsive()
         })
     }
+    const tabs = () => {
+        const tab = $('.information__tab')
+        const content = $('.information__box')
+        content.hide()
+        content.first().show()
+        tab.first().addClass('information__tab--active')
+        tab.on('click', function () {
+            const $this = $(this)
+            content.each(function () {
+                if($(this).attr('data-content') === $this.attr('data-href') && !$this.hasClass('information__tab--active')) {
+                    content.slideUp()
+                    tab.removeClass('information__tab--active')
+                    $this.addClass('information__tab--active')
+                    $(this).slideDown()
+                }
+            })
+        })
+    }
+    const readMore = () => {
+        $('.information__excerpt').on('click', function (e) {
+            e.preventDefault()
+            $('.information__text').slideDown()
+            $(this).remove()
+        })
+    }
     menu()
     headerUser()
     certificatesSlider()
     teamSlider()
     reviewsSlider()
     answersSlider()
+    tabs()
+    readMore()
 })
 const headerSticky = () => {
     let scrollPrev = 0;

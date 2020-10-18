@@ -131,7 +131,13 @@ $(function () {
       touchThreshold: 40,
       appendArrows: '.team__arrows',
       nextArrow: '<button class="section-arrow section-arrow--bg-green section-arrow--next"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>',
-      prevArrow: '<button class="section-arrow section-arrow--bg-green section-arrow--prev"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>'
+      prevArrow: '<button class="section-arrow section-arrow--bg-green section-arrow--prev"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>',
+      responsive: [{
+        breakpoint: 661,
+        settings: {
+          fade: true
+        }
+      }]
     }).on('afterChange', function () {
       var dataId = $('.slick-current').attr("data-slick-index");
       link.each(function () {
@@ -161,7 +167,8 @@ $(function () {
         breakpoint: 793,
         settings: {
           rows: 2,
-          slidesToShow: 1
+          slidesToShow: 1,
+          fade: true
         }
       }]
     });
@@ -203,12 +210,41 @@ $(function () {
     });
   };
 
+  var tabs = function tabs() {
+    var tab = $('.information__tab');
+    var content = $('.information__box');
+    content.hide();
+    content.first().show();
+    tab.first().addClass('information__tab--active');
+    tab.on('click', function () {
+      var $this = $(this);
+      content.each(function () {
+        if ($(this).attr('data-content') === $this.attr('data-href') && !$this.hasClass('information__tab--active')) {
+          content.slideUp();
+          tab.removeClass('information__tab--active');
+          $this.addClass('information__tab--active');
+          $(this).slideDown();
+        }
+      });
+    });
+  };
+
+  var readMore = function readMore() {
+    $('.information__excerpt').on('click', function (e) {
+      e.preventDefault();
+      $('.information__text').slideDown();
+      $(this).remove();
+    });
+  };
+
   menu();
   headerUser();
   certificatesSlider();
   teamSlider();
   reviewsSlider();
   answersSlider();
+  tabs();
+  readMore();
 });
 
 var headerSticky = function headerSticky() {

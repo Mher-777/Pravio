@@ -7,7 +7,7 @@ const shorthand = require('gulp-shorthand')
 const autoprefixer = require('gulp-autoprefixer');
 const argv = require('yargs').argv;
 const gulpif = require('gulp-if');
-
+const media = require('gulp-group-css-media-queries');
 // Работаем со стилями
 
 module.exports = function styles() {
@@ -15,6 +15,7 @@ module.exports = function styles() {
     .pipe(plumber())
     .pipe(gulpif(!argv.prod, sourcemaps.init()))
     .pipe(scss())
+    .pipe(media())
     .pipe(autoprefixer({
       overrideBrowserslist:  [ "last 4 version" ],
       cascade: false

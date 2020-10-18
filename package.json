@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
+    "gulp-group-css-media-queries": "^1.2.2",
     "normalize.css": "^8.0.1",
     "slick-carousel": "^1.8.1",
     "svg4everybody": "^2.1.9"
