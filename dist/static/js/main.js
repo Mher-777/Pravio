@@ -167,11 +167,48 @@ $(function () {
     });
   };
 
+  var answersSlider = function answersSlider() {
+    $('.answers__slider').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      appendArrows: '.answers__arrows',
+      touchThreshold: 40,
+      nextArrow: '<button class="section-arrow section-arrow--bg-blue section-arrow--next"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>',
+      prevArrow: '<button class="section-arrow section-arrow--bg-blue section-arrow--prev"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>',
+      rows: 4,
+      fade: true
+    });
+
+    function previewResponsive() {
+      var w = $(window).width();
+      var elem = $('.answers__preview-category');
+      elem.each(function () {
+        if (w <= 900) {
+          var content = $(this).closest('.answers__preview').find('.answers__preview-head');
+          var $thisElem = $(this).remove();
+          content.append($thisElem);
+        } else {
+          var _content = $(this).closest('.answers__preview').find('.answers__preview-bottom > *:nth-child(1)');
+
+          var _$thisElem = $(this).remove();
+
+          _content.after(_$thisElem);
+        }
+      });
+    }
+
+    previewResponsive();
+    $(window).resize(function () {
+      previewResponsive();
+    });
+  };
+
   menu();
   headerUser();
   certificatesSlider();
   teamSlider();
   reviewsSlider();
+  answersSlider();
 });
 
 var headerSticky = function headerSticky() {

@@ -93,6 +93,7 @@
 @media (max-width: 500px) {
   .section-top {
     margin-bottom: 20px;
+    overflow: hidden;
     &__title {
       margin-right: -100px;
     }
@@ -109,3 +110,4 @@
 @import "difference";
 @import "news";
 @import "question";
+@import "answers";
