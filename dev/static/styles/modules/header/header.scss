@@ -379,6 +379,19 @@ header { flex: 0 0 auto; }
   .header__menu {
     max-height: calc(100vh - 51px);
   }
+  .header__question-link {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    line-height: 14px;
+    margin: 5px 5px;
+    padding: 5px 10px;
+  }
+  .header__question-icon {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+  }
 }
 @media (max-width: 340px) {
   .header__search-icon {
