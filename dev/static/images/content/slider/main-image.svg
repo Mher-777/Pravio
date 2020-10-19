@@ -1,15 +1,23 @@
-<svg width="897" height="595" viewBox="0 0 897 595" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="897" height="671" viewBox="0 0 897 671" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g filter="url(#filter0_f)">
-<rect x="10" y="399" width="224" height="161" fill="url(#pattern0)" fill-opacity="0.26"/>
+<path d="M611.527 591.186C585.07 593.949 573.111 576.879 570.438 567.999C546.052 564.217 489.262 551.817 457.193 532.478C417.106 508.304 390.548 449.102 380.026 419.995C369.503 390.887 403.577 252.257 400.069 239.43C396.561 226.603 412.596 99.3191 469.219 82.0519C525.842 64.7848 527.846 125.96 527.846 136.32C527.846 146.68 503.293 208.349 497.28 213.776C491.267 219.202 504.295 254.723 527.846 260.15C551.397 265.577 557.41 263.604 604.512 269.524C651.614 275.444 632.573 278.897 649.109 314.912C665.645 350.926 680.677 410.621 682.18 419.995C683.684 429.368 707.736 511.264 700.721 548.265C693.705 585.266 644.599 587.733 611.527 591.186Z" fill="black" fill-opacity="0.26"/>
 </g>
-<rect x="5" y="392" width="224" height="161" fill="url(#pattern1)"/>
 <g filter="url(#filter1_f)">
-<rect x="421" y="244" width="466" height="341" fill="url(#pattern2)" fill-opacity="0.26"/>
+<rect x="10" y="425" width="224" height="161" fill="url(#pattern0)" fill-opacity="0.26"/>
 </g>
-<rect x="410" y="230" width="476" height="349" fill="url(#pattern3)"/>
-<rect x="200" width="468" height="581" fill="url(#pattern4)"/>
+<rect x="5" y="418" width="224" height="161" fill="url(#pattern1)"/>
+<g filter="url(#filter2_f)">
+<rect x="421" y="270" width="466" height="341" fill="url(#pattern2)" fill-opacity="0.26"/>
+</g>
+<rect x="410" y="256" width="476" height="349" fill="url(#pattern3)"/>
+<rect x="200" y="26" width="468" height="581" fill="url(#pattern4)"/>
 <defs>
-<filter id="filter0_f" x="0" y="389" width="244" height="181" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_f" x="299" y="0" width="482" height="670.485" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="39.5" result="effect1_foregroundBlur"/>
+</filter>
+<filter id="filter1_f" x="0" y="415" width="244" height="181" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feGaussianBlur stdDeviation="5" result="effect1_foregroundBlur"/>
@@ -20,7 +28,7 @@
 <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image1" transform="translate(-0.00215699) scale(0.00242003 0.003367)"/>
 </pattern>
-<filter id="filter1_f" x="411" y="234" width="486" height="361" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter2_f" x="411" y="260" width="486" height="361" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feGaussianBlur stdDeviation="5" result="effect1_foregroundBlur"/>

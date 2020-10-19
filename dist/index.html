@@ -160,7 +160,12 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="slider__image"><img class="slider__pic" src="static/images/content/slider/main-image.svg" alt="Юрист Консультант">
+                  <div class="slider__image">
+                    <picture>
+                      <source srcset="static/images/content/slider/main-image.webp" type="image/webp"/>
+                      <source srcset="static/images/content/slider/main-image.png" type="image/png"/>
+                      <source srcset="static/images/content/slider/main-image.svg" type="image/svg"/><img class="slider__pic" src="static/images/content/slider/main-image.svg" alt="main-image"/>
+                    </picture>
                     <div class="slider__image-info"><strong class="slider__image-name">Алексей Романов</strong><span class="slider__image-desc">юрист-консультант с 27 летним стажем</span></div>
                   </div>
                 </div>
