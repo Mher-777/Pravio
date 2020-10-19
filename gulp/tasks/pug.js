@@ -11,7 +11,7 @@ module.exports = function pug2html() {
   return gulp.src('dev/pug/*.pug')
     .pipe(plumber())
     .pipe(pug(
-        {pretty: true}
+        // {pretty: true}
     ))
     .pipe(plumber.stop())
     .pipe(gulpif(argv.prod, htmlValidator()))

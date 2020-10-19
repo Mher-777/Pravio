@@ -170,6 +170,9 @@ header { flex: 0 0 auto; }
       margin-right: 10px;
     }
   }
+  &__link {
+    cursor: auto;
+  }
 }
 @media (max-width: 1300px) {
   .header__inner {
@@ -334,6 +337,17 @@ header { flex: 0 0 auto; }
     }
   }
 }
+@media (max-width: 580px) {
+  .header__link {
+    width: 100%;
+  }
+  .header__question {
+    width: 100%;
+  }
+  .header__info--open {
+    max-width: calc(100% - 20px);
+  }
+}
 @media (max-width: 500px) {
   .logo__image {
     display: inline-block;
@@ -391,6 +405,11 @@ header { flex: 0 0 auto; }
     flex-shrink: 0;
     width: 16px;
     height: 16px;
+  }
+}
+@media (max-width: 346px) {
+  .header__link {
+    padding: 10px 13px;
   }
 }
 @media (max-width: 340px) {
