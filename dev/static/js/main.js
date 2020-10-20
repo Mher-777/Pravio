@@ -1,3 +1,33 @@
+$(window).on('load', function () {
+    const body = $('body')
+    const header = $('.header__inner')
+    body.css('margin-right', calcScroll())
+    header.css('transform', 'translateX(' + -calcScroll() / 2 + 'px)')
+    setTimeout(function () {
+        $('.loader').fadeOut(500, function () {
+            $(this).remove()
+            if(body.hasClass('hidden--loader')){
+                body.delay(400).removeClass('hidden--loader')
+                body.css('margin-right', '')
+                header.css('transform', '')
+
+            }
+        })
+    }, 500)
+})
+function calcScroll () {
+    let div = document.createElement('div')
+    div.style.width = '50px';
+    div.style.height = '50px';
+    div.style.overflowY = 'scroll';
+    div.style.visibility = 'hidden';
+
+    document.body.appendChild(div);
+    let scrollWidth = div.offsetWidth - div.clientWidth;
+    div.remove();
+
+    return scrollWidth;
+}
 $(function () {
     svg4everybody({})
     const headerUser = () => {

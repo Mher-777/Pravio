@@ -307,7 +307,7 @@ header { flex: 0 0 auto; }
     max-width: 400px;
     margin: 0;
     flex-direction: row-reverse;
-    transform: translateX(100%);
+    transform: translateX(calc(100% + 30px));
     transition: all .4s;
     &--open {
       transform: translateX(0);
