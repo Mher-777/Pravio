@@ -68,15 +68,22 @@
   justify-content: center;
   cursor: pointer;
   margin: 0 5px;
+  transition: all linear .2s;
   &--next {
     transform: rotate(180deg);
   }
   &--bg {
     &-green {
       background-color: var(--color-green);
+      &:hover {
+        background-color: var(--color-green-hover);
+      }
     }
     &-blue {
       background-color: var(--color-blue);
+      &:hover {
+        background-color: var(--color-blue-hover);
+      }
     }
   }
 }

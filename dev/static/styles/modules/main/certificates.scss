@@ -14,6 +14,11 @@
   &__link {
     padding: 34px 20px;
     border: 5px solid #E3FBEF;
+    transition: all linear .2s;
+    &:hover {
+      border-color: var(--color-green);
+      background-color: #E3FBEF;
+    }
   }
   &__image {
     min-width: 109px;
