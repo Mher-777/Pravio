@@ -1,0 +1,32 @@
+section.main-banner
+  .main-banner__bg(style="background-image: url(static/images/common/main-bg.jpg)")
+    .container
+      .main-banner__content
+        +picture('static/images/content/slider', 'slider-icon', ['webp', 'png'], 'main-banner__icon')
+        h2.title.title--color-white.title--size-big.title--align-center.main-banner__title ЗАДАТЬ ВОПРОС ЮРИСТУ В МОСКВЕ
+        span.main-banner__desc Задайте свой вопрос юристу и получите ответы от юристов со всей россии
+section.faq.faq--asked
+  .container
+    .faq__content
+      .faq__top
+        h2.title.title--size-small.title--align-center.faq__title Задать вопрос
+        span.title.title--size-tiny.title--color-gray.faq__subtitle Чтобы задать вопрос юристу онлайн, Вам потребуется всего лишь несколько минут и заполнить пару шагов
+      form(action="#").faq__form
+        h3.title.title--align-center.title--size-medium.title--color-green.faq__form-title Ваш вопрос юристам
+        .faq__form-row
+          label.faq__control.label
+            +icon('arrow-down', 'label__icon label__icon--fill-orange')
+            input(type="text" placeholder="Тема вопроса").input.faq__control-input
+            span.label__text.faq__control-text Пример: «Как вернуть некачественный товар в интернет-магазин?»
+          label.faq__control.label
+            +icon('arrow-down', 'label__icon label__icon--fill-orange')
+            select.select.faq__control-select(data-placeholder="Выберите категорию права")
+              option.select__option
+              option(value="1").select__option Котегори 1
+              option(value="2").select__option Котегори 2
+              option(value="3").select__option Котегори 3
+              option(value="4").select__option Котегори 4
+              option(value="5").select__option Котегори 5
+          label.faq__control.faq__control--width.label
+            +icon('arrow-down', 'label__icon label__icon--fill-orange')
+            textarea(placeholder="Расскажите нам о вашей проблеме").textarea.faq__control-textarea

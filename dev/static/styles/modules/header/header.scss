@@ -171,7 +171,10 @@ header { flex: 0 0 auto; }
     }
   }
   &__link {
-    cursor: auto;
+    &:hover {
+      background-color: var(--color-white);
+      color: var(--color-green);
+    }
   }
 }
 @media (max-width: 1300px) {
@@ -249,10 +252,7 @@ header { flex: 0 0 auto; }
     color: var(--color-white);
     position: static;
     width: 100%;
-    padding-top: 5px;
-    padding-bottom: 15px;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 5px 0 15px;
     &-link {
       padding-left: 20px;
       padding-right: 20px;

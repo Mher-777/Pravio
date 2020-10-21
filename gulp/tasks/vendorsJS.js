@@ -9,6 +9,8 @@ const vendorsScripts = [
   'dev/static/js/vendor/responsive.js',
   'node_modules/slick-carousel/slick/slick.js',
   'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
+  'dev/static/js/vendor/scrollbar.js',
+  'node_modules/select2/dist/js/select2.js',
   'node_modules/svg4everybody/dist/svg4everybody.min.js',
 ];
 

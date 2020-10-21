@@ -1,0 +1,50 @@
+.faq {
+  &__content {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    background-color: #F9F9FB;
+    transform: translateY(-90px);
+    padding: 65px 100px;
+  }
+  &__title {
+    margin-bottom: 25px;
+  }
+  &__top {
+    text-align: center;
+    padding-bottom: 45px;
+    border-bottom: 1px solid var(--color-bg);
+  }
+  &__control {
+    width: calc(50% - 55px);
+    margin-left: 55px;
+    margin-top: 40px;
+    &--width {
+      width: 100%;
+    }
+    &-input {
+      max-width: 100%;
+    }
+    &-textarea {
+      width: 100%;
+      padding: 20px 28px;
+      box-shadow: 0px 4px 15px rgba(201, 201, 201, 0.1);
+      border: 1px solid #ECECEC;
+      height: 160px;
+      font-size: 14px;
+      line-height: 19px;
+      background-color: #F9F9FB;
+      &:focus {
+        border-color: var(--color-green);
+      }
+    }
+  }
+  &__form {
+    padding-top: 35px;
+    &-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin-left: -55px;
+    }
+  }
+}

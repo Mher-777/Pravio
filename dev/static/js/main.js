@@ -271,5 +271,14 @@ const headerSticky = () => {
         scrollPrev = scrolled;
     });
 }
-
 headerSticky()
+const customSelect = () => {
+    $('.select').select2({
+        minimumResultsForSearch: -1,
+        width: null,
+    })
+        // .on('select2:open', function(e){
+        //     $('.select2-results__options').scrollbar().parent().addClass('scrollbar-inner');
+        // });
+}
+customSelect()

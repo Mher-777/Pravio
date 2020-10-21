@@ -6,4 +6,4 @@ mixin picture(path, name, type, id)
 	picture
 		each val in type
 			source(srcset=path + "/" + name + "." + val type="image/" + val)
-		img(src=path + "/" + name + "." + type[2] alt=name class=id)
+		img(src=path + "/" + name + "." + type[1] alt=name class=id)
