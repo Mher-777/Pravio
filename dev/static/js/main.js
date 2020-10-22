@@ -6,7 +6,7 @@ $(window).on('load', function () {
     setTimeout(function () {
         $('.loader').fadeOut(500, function () {
             $(this).remove()
-            if(body.hasClass('hidden--loader')){
+            if (body.hasClass('hidden--loader')) {
                 body.delay(400).removeClass('hidden--loader')
                 body.css('margin-right', '')
                 header.css('transform', '')
@@ -15,7 +15,8 @@ $(window).on('load', function () {
         })
     }, 500)
 })
-function calcScroll () {
+
+function calcScroll() {
     let div = document.createElement('div')
     div.style.width = '50px';
     div.style.height = '50px';
@@ -28,6 +29,7 @@ function calcScroll () {
 
     return scrollWidth;
 }
+
 $(function () {
     svg4everybody({})
     const headerUser = () => {
@@ -52,6 +54,7 @@ $(function () {
         const phone = $('.header__phone')
         const header = $('.header')
         const body = $('body')
+
         function responsivePhone() {
             const w = $(window).width()
             if (w <= 772) {
@@ -152,16 +155,16 @@ $(function () {
                     }
                 }
             ]
-        }).on('afterChange', function() {
+        }).on('afterChange', function () {
             let dataId = $('.slick-current').attr("data-slick-index");
             link.each(function () {
-                if($(this).attr('data-id') === dataId) {
+                if ($(this).attr('data-id') === dataId) {
                     link.parent().removeClass('team__tab--active')
                     $(this).parent().addClass('team__tab--active')
                 }
             })
         });
-        link.on("click", function(e){
+        link.on("click", function (e) {
             e.preventDefault()
             $('.team__slider').slick('slickGoTo', $(this).attr('data-id'));
             link.parent().removeClass('team__tab--active')
@@ -199,11 +202,12 @@ $(function () {
             rows: 4,
             fade: true
         })
+
         function previewResponsive() {
             const w = $(window).width()
             const elem = $('.answers__preview-category')
             elem.each(function () {
-                if(w <= 900 ) {
+                if (w <= 900) {
                     const content = $(this).closest('.answers__preview').find('.answers__preview-head')
                     const $thisElem = $(this).remove()
                     content.append($thisElem)
@@ -215,6 +219,7 @@ $(function () {
 
             })
         }
+
         previewResponsive()
         $(window).resize(function () {
             previewResponsive()
@@ -229,7 +234,7 @@ $(function () {
         tab.on('click', function () {
             const $this = $(this)
             content.each(function () {
-                if($(this).attr('data-content') === $this.attr('data-href') && !$this.hasClass('information__tab--active')) {
+                if ($(this).attr('data-content') === $this.attr('data-href') && !$this.hasClass('information__tab--active')) {
                     content.slideUp()
                     tab.removeClass('information__tab--active')
                     $this.addClass('information__tab--active')
@@ -259,10 +264,10 @@ const headerSticky = () => {
     let header = document.querySelector('.header')
     window.addEventListener('scroll', () => {
         let scrolled = window.scrollY;
-        if(scrolled >= 30 && scrolled > scrollPrev) {
+        if (scrolled >= 30 && scrolled > scrollPrev) {
             header.style.top = -header.offsetHeight + 'px';
             header.classList.remove('header--sticky')
-        } else if(scrolled === 0) {
+        } else if (scrolled === 0) {
             header.classList.remove('header--sticky')
         } else {
             header.style.top = 0;
@@ -277,8 +282,79 @@ const customSelect = () => {
         minimumResultsForSearch: -1,
         width: null,
     })
-        // .on('select2:open', function(e){
-        //     $('.select2-results__options').scrollbar().parent().addClass('scrollbar-inner');
-        // });
+    // .on('select2:open', function(e){
+    //     $('.select2-results__options').scrollbar().parent().addClass('scrollbar-inner');
+    // });
 }
 customSelect()
+let browse = document.querySelector('.js-browse')
+const fileUpload = document.querySelector('.file-upload')
+Dropzone.autoDiscover = false;
+let profileVerify = new Dropzone(".file-upload", {
+    url: "/file/post",
+    previewTemplate: `
+        <div class="dz-preview dz-file-preview">
+          <div class="dz-image">
+             <img data-dz-thumbnail alt=""/>
+          </div>   
+          <div class="dz-details">
+            <div class="dz-filename"><span data-dz-name></span></div>
+          </div>
+          <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+        </div>
+    `,
+    acceptedFiles: ".pdf, .doc, .png, .jpeg, .jpg, .docx, .otd, .xls, .xlsx, .zip, .rar",
+    "error": function(file, message, xhr) {
+        if (xhr == null) {
+            this.removeFile(file);
+            alert(message);
+        }
+
+    },
+    clickable: [
+        fileUpload,
+        browse
+    ],
+    init: function () {
+        browse.remove()
+        this.on("addedfile", function (file) {
+            let ext = file.name.split('.').pop();
+            $(file.previewElement).closest('.file-upload').append(browse)
+            if (ext === "pdf") {
+                $(file.previewElement).find("img").attr("src", "static/images/content/files/pdf.svg");
+                console.log('pdf')
+            } else if (ext.indexOf("doc") !== -1) {
+                $(file.previewElement).find("img").attr("src", "static/images/content/files/doc.svg");
+                console.log('doc')
+            } else if (ext.indexOf("png") !== -1) {
+                $(file.previewElement).find("img").attr("src", "static/images/content/files/png.svg");
+                console.log('png')
+            } else if (ext.indexOf("jpeg") !== -1) {
+                $(file.previewElement).find("img").attr("src", "static/images/content/files/jpeg.svg");
+                console.log('jpeg')
+            } else if (ext.indexOf("jpg") !== -1) {
+                $(file.previewElement).find("img").attr("src", "static/images/content/files/jpg.svg");
+                console.log('jpg')
+            } else if (ext.indexOf("docx") !== -1) {
+                $(file.previewElement).find("img").attr("src", "static/images/content/files/docx.svg");
+                console.log('docx')
+            } else if (ext.indexOf("otd") !== -1) {
+                $(file.previewElement).find("img").attr("src", "static/images/content/files/otd.svg");
+                console.log('otd')
+            } else if (ext.indexOf("xls") !== -1) {
+                $(file.previewElement).find("img").attr("src", "static/images/content/files/xls.svg");
+                console.log('xls')
+            } else if (ext.indexOf("xlsx") !== -1) {
+                $(file.previewElement).find("img").attr("src", "static/images/content/files/xlsx.svg");
+                console.log('xlsx')
+            } else if (ext.indexOf("zip") !== -1) {
+                $(file.previewElement).find("img").attr("src", "static/images/content/files/zip.svg");
+                console.log('zip')
+            } else if (ext.indexOf("rar") !== -1) {
+                $(file.previewElement).find("img").attr("src", "static/images/content/files/rar.svg");
+                console.log('rar')
+            }
+        })
+    }
+});
+

@@ -296,3 +296,60 @@ var customSelect = function customSelect() {
 };
 
 customSelect();
+var browse = document.querySelector('.js-browse');
+var fileUpload = document.querySelector('.file-upload');
+Dropzone.autoDiscover = false;
+var profileVerify = new Dropzone(".file-upload", {
+  url: "/file/post",
+  previewTemplate: "\n        <div class=\"dz-preview dz-file-preview\">\n          <div class=\"dz-image\">\n             <img data-dz-thumbnail alt=\"\"/>\n          </div>   \n          <div class=\"dz-details\">\n            <div class=\"dz-filename\"><span data-dz-name></span></div>\n          </div>\n          <div class=\"dz-progress\"><span class=\"dz-upload\" data-dz-uploadprogress></span></div>\n        </div>\n    ",
+  acceptedFiles: ".pdf, .doc, .png, .jpeg, .jpg, .docx, .otd, .xls, .xlsx, .zip, .rar",
+  "error": function error(file, message, xhr) {
+    if (xhr == null) {
+      this.removeFile(file);
+      alert(message);
+    }
+  },
+  clickable: [fileUpload, browse],
+  init: function init() {
+    browse.remove();
+    this.on("addedfile", function (file) {
+      var ext = file.name.split('.').pop();
+      $(file.previewElement).closest('.file-upload').append(browse);
+
+      if (ext === "pdf") {
+        $(file.previewElement).find("img").attr("src", "static/images/content/files/pdf.svg");
+        console.log('pdf');
+      } else if (ext.indexOf("doc") !== -1) {
+        $(file.previewElement).find("img").attr("src", "static/images/content/files/doc.svg");
+        console.log('doc');
+      } else if (ext.indexOf("png") !== -1) {
+        $(file.previewElement).find("img").attr("src", "static/images/content/files/png.svg");
+        console.log('png');
+      } else if (ext.indexOf("jpeg") !== -1) {
+        $(file.previewElement).find("img").attr("src", "static/images/content/files/jpeg.svg");
+        console.log('jpeg');
+      } else if (ext.indexOf("jpg") !== -1) {
+        $(file.previewElement).find("img").attr("src", "static/images/content/files/jpg.svg");
+        console.log('jpg');
+      } else if (ext.indexOf("docx") !== -1) {
+        $(file.previewElement).find("img").attr("src", "static/images/content/files/docx.svg");
+        console.log('docx');
+      } else if (ext.indexOf("otd") !== -1) {
+        $(file.previewElement).find("img").attr("src", "static/images/content/files/otd.svg");
+        console.log('otd');
+      } else if (ext.indexOf("xls") !== -1) {
+        $(file.previewElement).find("img").attr("src", "static/images/content/files/xls.svg");
+        console.log('xls');
+      } else if (ext.indexOf("xlsx") !== -1) {
+        $(file.previewElement).find("img").attr("src", "static/images/content/files/xlsx.svg");
+        console.log('xlsx');
+      } else if (ext.indexOf("zip") !== -1) {
+        $(file.previewElement).find("img").attr("src", "static/images/content/files/zip.svg");
+        console.log('zip');
+      } else if (ext.indexOf("rar") !== -1) {
+        $(file.previewElement).find("img").attr("src", "static/images/content/files/rar.svg");
+        console.log('rar');
+      }
+    });
+  }
+});

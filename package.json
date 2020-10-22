@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
+    "dropzone": "^5.7.2",
     "gulp-group-css-media-queries": "^1.2.2",
     "normalize.css": "^8.0.1",
     "select2": "^4.0.13",
