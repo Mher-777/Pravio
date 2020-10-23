@@ -34,16 +34,32 @@ $(function () {
     svg4everybody({})
     const headerUser = () => {
         const container = $('.header__user-btn')
+        const dropdownSearch = $('.header__search-dropdown')
         container.on('click', function (e) {
             e.stopPropagation();
-            $(this).toggleClass('active')
             $(this).next().slideToggle(200)
+            dropdownSearch.slideUp()
         })
         $(document).on('click', function (e) {
             const target = e.target;
             if (!container.next().is(target) && container.next().has(target).length === 0) {
-                container.removeClass('active');
                 container.next().slideUp(200)
+            }
+        });
+    }
+    const headerSearch = () => {
+        const btn = $('.header__search-btn')
+        const search = $('.header__search-dropdown')
+        const dropdownUser = $('.header__user-dropdown')
+        btn.on('click', function (e) {
+            e.stopPropagation();
+            $(this).siblings(search).slideToggle(200)
+            dropdownUser.slideUp()
+        })
+        $(document).on('click', function (e) {
+            const target = e.target;
+            if (!btn.siblings(search).is(target) && btn.siblings(search).has(target).length === 0) {
+                btn.siblings(search).slideUp(200)
             }
         });
     }
@@ -250,6 +266,55 @@ $(function () {
             $(this).remove()
         })
     }
+    const faqSlider = () => {
+        $('.faq__form-slider').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            rows: false,
+            arrows: false,
+            dots: true,
+            dotsClass: 'slider-pagination',
+            touchThreshold: 40,
+            responsive: [
+                {
+                    breakpoint: 873,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                },
+                {
+                    breakpoint: 601,
+                    settings: {
+                        slidesToShow: 1,
+                    }
+                }
+            ]
+        }).on('setPosition', function (event, slick) {
+            slick.$slides.find('.faq__item').css('min-height', slick.$slideTrack.height() - 40 + 'px');
+        })
+    }
+    const documentsItems = () => {
+        const elem = $('.documents__item')
+        elem.on('click', function () {
+            if(elem.hasClass('documents__item--active')) {
+                elem.removeClass('documents__item--active')
+            }
+            $(this).toggleClass('documents__item--active')
+        })
+    }
+    const radioDisabled = () => {
+        const radio = $('.documents-info__radio').prev()
+        const input = $('.documents-info__input')
+        radio.on('change', function () {
+            if($(this).attr('id') === 'pay') {
+                input.removeAttr('disabled')
+                input.select()
+            } else {
+                input.attr('disabled', 'disabled')
+            }
+        })
+    }
+
     menu()
     headerUser()
     certificatesSlider()
@@ -258,19 +323,19 @@ $(function () {
     answersSlider()
     tabs()
     readMore()
+    faqSlider()
+    headerSearch()
+    documentsItems()
+    radioDisabled()
 })
 const headerSticky = () => {
     let scrollPrev = 0;
     let header = document.querySelector('.header')
     window.addEventListener('scroll', () => {
         let scrolled = window.scrollY;
-        if (scrolled >= 30 && scrolled > scrollPrev) {
-            header.style.top = -header.offsetHeight + 'px';
+        if (scrolled === 0) {
             header.classList.remove('header--sticky')
-        } else if (scrolled === 0) {
-            header.classList.remove('header--sticky')
-        } else {
-            header.style.top = 0;
+        }  else {
             header.classList.add('header--sticky')
         }
         scrollPrev = scrolled;
@@ -287,15 +352,17 @@ const customSelect = () => {
     // });
 }
 customSelect()
-let browse = document.querySelector('.js-browse')
-const fileUpload = document.querySelector('.file-upload')
-Dropzone.autoDiscover = false;
-let profileVerify = new Dropzone(".file-upload", {
-    url: "/file/post",
-    previewTemplate: `
+const customUpload = () => {
+    let browse = document.querySelector('.js-browse')
+    const fileUpload = document.querySelector('.file-upload')
+    if(fileUpload) {
+        Dropzone.autoDiscover = false;
+        let profileVerify = new Dropzone(".file-upload", {
+            url: "/file/post",
+            previewTemplate: `
         <div class="dz-preview dz-file-preview">
           <div class="dz-image">
-             <img data-dz-thumbnail alt=""/>
+             <img alt=""/>
           </div>   
           <div class="dz-details">
             <div class="dz-filename"><span data-dz-name></span></div>
@@ -303,58 +370,51 @@ let profileVerify = new Dropzone(".file-upload", {
           <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
         </div>
     `,
-    acceptedFiles: ".pdf, .doc, .png, .jpeg, .jpg, .docx, .otd, .xls, .xlsx, .zip, .rar",
-    "error": function(file, message, xhr) {
-        if (xhr == null) {
-            this.removeFile(file);
-            alert(message);
-        }
+            acceptedFiles: ".pdf, .doc, .png, .jpeg, .jpg, .docx, .otd, .xls, .xlsx, .zip, .rar",
+            "error": function(file, message, xhr) {
+                if (xhr == null) {
+                    this.removeFile(file);
+                    alert(message);
+                }
 
-    },
-    clickable: [
-        fileUpload,
-        browse
-    ],
-    init: function () {
-        browse.remove()
-        this.on("addedfile", function (file) {
-            let ext = file.name.split('.').pop();
-            $(file.previewElement).closest('.file-upload').append(browse)
-            if (ext === "pdf") {
-                $(file.previewElement).find("img").attr("src", "static/images/content/files/pdf.svg");
-                console.log('pdf')
-            } else if (ext.indexOf("doc") !== -1) {
-                $(file.previewElement).find("img").attr("src", "static/images/content/files/doc.svg");
-                console.log('doc')
-            } else if (ext.indexOf("png") !== -1) {
-                $(file.previewElement).find("img").attr("src", "static/images/content/files/png.svg");
-                console.log('png')
-            } else if (ext.indexOf("jpeg") !== -1) {
-                $(file.previewElement).find("img").attr("src", "static/images/content/files/jpeg.svg");
-                console.log('jpeg')
-            } else if (ext.indexOf("jpg") !== -1) {
-                $(file.previewElement).find("img").attr("src", "static/images/content/files/jpg.svg");
-                console.log('jpg')
-            } else if (ext.indexOf("docx") !== -1) {
-                $(file.previewElement).find("img").attr("src", "static/images/content/files/docx.svg");
-                console.log('docx')
-            } else if (ext.indexOf("otd") !== -1) {
-                $(file.previewElement).find("img").attr("src", "static/images/content/files/otd.svg");
-                console.log('otd')
-            } else if (ext.indexOf("xls") !== -1) {
-                $(file.previewElement).find("img").attr("src", "static/images/content/files/xls.svg");
-                console.log('xls')
-            } else if (ext.indexOf("xlsx") !== -1) {
-                $(file.previewElement).find("img").attr("src", "static/images/content/files/xlsx.svg");
-                console.log('xlsx')
-            } else if (ext.indexOf("zip") !== -1) {
-                $(file.previewElement).find("img").attr("src", "static/images/content/files/zip.svg");
-                console.log('zip')
-            } else if (ext.indexOf("rar") !== -1) {
-                $(file.previewElement).find("img").attr("src", "static/images/content/files/rar.svg");
-                console.log('rar')
+            },
+            clickable: [
+                fileUpload,
+                browse
+            ],
+            init: function () {
+                browse.remove()
+                this.on("addedfile", function (file) {
+                    let ext = file.name.split('.').pop();
+                    $(file.previewElement).closest('.file-upload').append(browse)
+                    if (ext === "pdf") {
+                        $(file.previewElement).find("img").attr("src", "static/images/content/files/pdf.svg");
+                    } else if (ext.indexOf("doc") !== -1) {
+                        $(file.previewElement).find("img").attr("src", "static/images/content/files/doc.svg");
+                    } else if (ext.indexOf("png") !== -1) {
+                        $(file.previewElement).find("img").attr("src", "static/images/content/files/png.svg");
+                    } else if (ext.indexOf("jpeg") !== -1) {
+                        $(file.previewElement).find("img").attr("src", "static/images/content/files/jpeg.svg");
+                    } else if (ext.indexOf("jpg") !== -1) {
+                        $(file.previewElement).find("img").attr("src", "static/images/content/files/jpg.svg");
+                    } else if (ext.indexOf("docx") !== -1) {
+                        $(file.previewElement).find("img").attr("src", "static/images/content/files/docx.svg");
+                    } else if (ext.indexOf("otd") !== -1) {
+                        $(file.previewElement).find("img").attr("src", "static/images/content/files/otd.svg");
+                    } else if (ext.indexOf("xls") !== -1) {
+                        $(file.previewElement).find("img").attr("src", "static/images/content/files/xls.svg");
+                    } else if (ext.indexOf("xlsx") !== -1) {
+                        $(file.previewElement).find("img").attr("src", "static/images/content/files/xlsx.svg");
+                    } else if (ext.indexOf("zip") !== -1) {
+                        $(file.previewElement).find("img").attr("src", "static/images/content/files/zip.svg");
+                    } else if (ext.indexOf("rar") !== -1) {
+                        $(file.previewElement).find("img").attr("src", "static/images/content/files/rar.svg");
+                    }
+                })
             }
-        })
+        });
     }
-});
+
+}
+customUpload()
 

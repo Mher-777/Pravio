@@ -2,7 +2,7 @@ header.header
   .container
     .header__inner
       .logo
-        a(href="#").logo__link
+        a(href="index.html").logo__link
           img(src="static/images/common/logo.svg" alt="Логотип").logo__image
       nav.header__menu.menu
         ul.menu__list
@@ -78,20 +78,27 @@ header.header
             button(type="button").header__user-btn
               +icon('user', 'header__user-icon')
             .header__user-dropdown
-              a(href="#" title="Вход").header__user-link Вход
-              a(href="#" title="Регистрация").header__user-link Регистрация
+              a(href="#").header__user-link Личный кабинет
+              a(href="#").header__user-link Профиль
+              a(href="#").header__user-link Чат
+              a(href="#").header__user-link Написать
+              a(href="#").header__user-link Избранное
+              a(href="#").header__user-link Выйти
           .header__search
             button.header__search-btn
               +icon('search', 'header__search-icon')
+            .header__search-dropdown
+              form(action="#").header__search-form
+                input(type="text" placeholder="Поиск на сайте" required).header__search-input
         .header__question
           a(href="faq-asked.html").header__link.btn.btn--color-green.btn--bg-white
             +icon('question-mark', 'btn-icon btn-icon--color-green')
             | Задать вопрос
           .header__question-dropdown
-            a(href="#").header__question-link
+            a(href="faq-consultation.html").header__question-link
               +icon('phone', 'header__question-icon')
               | Консультация
-            a(href="#").header__question-link
+            a(href="faq-document.html").header__question-link
               +icon('document-light', 'header__question-icon')
               | Документ
       button.burger.burger-slip

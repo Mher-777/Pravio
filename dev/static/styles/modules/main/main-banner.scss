@@ -24,6 +24,9 @@
     color: var(--color-white);
     display: block;
     margin-top: 5px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
   }
   &__title {
     max-width: 830px;
@@ -45,6 +48,11 @@
     padding-top: 90px;
   }
 }
+@media (max-width: 650px) {
+  .main-banner__bg {
+    padding-bottom: 180px;
+  }
+}
 @media (max-width: 600px) {
   .main-banner__desc {
     font-size: 16px;
@@ -60,10 +68,14 @@
     height: 70px;
     border-radius: 0 20px;
   }
+  .main-banner__bg {
+    padding-bottom: 230px;
+  }
 }
 @media (max-width: 500px) {
   .main-banner__bg {
     padding-top: 60px;
+    padding-bottom: 260px;
   }
 }
 @media (max-width: 340px) {

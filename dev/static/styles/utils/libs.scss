@@ -970,6 +970,7 @@ body.compensate-for-scrollbar {
 }
 
 .dropzone {
+  margin-bottom: -35px;
   .dz-message {
     font-size: 18px;
     line-height: 25px;
@@ -1013,6 +1014,14 @@ body.compensate-for-scrollbar {
   height: 80px;
   padding: 16px;
 }
+.dropzone .dz-preview.dz-image-preview .dz-image {
+  background: transparent;
+  border-radius: 0px 20px 20px 20px;
+  border: 1px solid #ECECEC;
+  width: 80px;
+  height: 80px;
+  padding: 16px;
+}
 .dropzone .dz-preview:hover .dz-image img {
   filter: blur(0);
 }
@@ -1045,8 +1054,10 @@ body.compensate-for-scrollbar {
   margin: 0 27.5px 15px 0;
 }
 .dropzone.file-upload {
-  margin-left: -30px;
   display: flex;
+}
+.dropzone.file-upload.dz-started {
+  margin-left: -30px;
   width: calc(100% + 30px);
   flex-wrap: wrap;
 }
@@ -1081,4 +1092,13 @@ body.compensate-for-scrollbar {
 }
 .dropzone.dz-clickable * .dz-preview {
   cursor: default;
+}
+@media (max-width: 972px) {
+  .dropzone.file-upload.dz-started {
+    margin-left: -15px;
+    width: calc(100% + 15px);
+  }
+  .dropzone .dz-preview {
+    margin-left: 15px;
+  }
 }

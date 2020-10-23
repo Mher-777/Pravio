@@ -10,6 +10,10 @@
   cursor: pointer;
   text-align: center;
   border: 2px solid transparent;
+  &--width {
+    display: block;
+    width: 100%;
+  }
   &--color {
     &-green {
       color: var(--color-green);
@@ -19,11 +23,23 @@
         background-color: transparent;
       }
     }
+    &-orange {
+      color: var(--color-btn);
+      &:hover {
+        color: var(--color-white);
+      }
+    }
     &-bg {
       color: var(--color-bg);
     }
   }
   &--border {
+    &-orange {
+      border-color: var(--color-btn);
+      &:hover {
+        background-color: var(--color-btn);
+      }
+    }
     &-radius {
       border-radius: 20px;
     }
@@ -60,6 +76,10 @@
       font-size: 20px;
       line-height: 26px;
       padding: 10px 40px;
+    }
+    &-tiny {
+      font-size: 16px;
+      line-height: 21px;
     }
   }
   &-icon {
