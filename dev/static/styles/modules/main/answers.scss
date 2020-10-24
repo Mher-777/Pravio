@@ -1,7 +1,5 @@
 .answers {
-  padding-bottom: 70px;
   margin-bottom: 100px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   &__preview {
     background: var(--color-preview);
     border-radius: 0px 50px 50px 50px;
@@ -90,6 +88,9 @@
       margin-left: 20px;
     }
   }
+  &__slider {
+    margin-bottom: -30px;
+  }
 }
 @media (max-width: 940px) {
   .answers__preview {
@@ -135,13 +136,14 @@
     margin-bottom: 20px;
     border-radius: 0px 20px 20px 20px;
   }
-  .answers {
-    padding-bottom: 5px;
-    margin-bottom: 25px;
-    border-bottom: none;
-  }
   .answers__preview-users {
     min-width: auto;
+  }
+  .answers {
+    margin-bottom: 0;
+    &__slider {
+      margin-bottom: -20px;
+    }
   }
 }
 @media (max-width: 400px) {

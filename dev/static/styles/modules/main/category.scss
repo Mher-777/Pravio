@@ -1,5 +1,7 @@
 .category {
   padding-bottom: 100px;
+  padding-top: 100px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
   &__inner {
     margin-top: 30px;
   }
@@ -23,6 +25,11 @@
     margin-left: 10px;
     padding: 8px 13px;
     transition: all linear .2s;
+    min-height: 53px;
+    &--padding {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
     &:hover {
       color: var(--color-white);
       .category__icon {
@@ -86,6 +93,15 @@
   }
   .category {
     padding-bottom: 50px;
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 50px;
+    &__link {
+      &--padding {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
   }
 }
 @media (max-width: 500px) {
