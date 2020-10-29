@@ -95,19 +95,33 @@
   .information__inner {
     margin-top: 15px;
   }
+  .information__tabs {
+    border: none;
+    overflow: visible;
+  }
+
   .information__tab {
-    display: none;
     text-align: left;
     font-size: 16px;
     line-height: 20px;
-    margin-top: -1px;
     padding: 13px 20px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #FF9900;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-weight: 700;
+    margin-top: 15px;
     &-icon {
       transform: rotate(90deg);
     }
   }
+  .information__tabs-menu {
+    display: none;
+  }
   .information__tab--active {
-    display: flex;
+    border-radius: 10px 10px 0px 0px;
     .information__tab-icon {
       transform: rotate(-90deg);
       margin-left: auto;
@@ -119,6 +133,9 @@
   }
   .information__box {
     padding: 15px;
+    border: 1px solid #DCDCDC;
+    border-radius: 0 0 10px 10px;
+    //display: block !important;
   }
   .information__figure {
     margin-left: auto;

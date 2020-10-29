@@ -265,6 +265,27 @@ $(function () {
             $('.information__text').slideDown()
             $(this).remove()
         })
+        function readMoreCategory(id) {
+            $(id + ' .category__link').slice(0, 12).show({
+                start: function () {
+                    $(this).css({
+                        display: "flex"
+                    })
+                }
+            })
+            $(id + ' .category__btn').on('click', function (e) {
+                e.preventDefault();
+                $(id + ' .category__link:hidden').slice(0, 12).slideDown({
+                    start: function () {
+                        $(this).css({
+                            display: "flex"
+                        })
+                    }
+                });
+            });
+        }
+        readMoreCategory('#business')
+        readMoreCategory('#face')
     }
     const faqSlider = () => {
         $('.faq__form-slider').slick({

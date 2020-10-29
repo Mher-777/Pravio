@@ -15,17 +15,27 @@
     margin-top: 20px;
     flex-wrap: wrap;
   }
+  #business {
+    .category__link {
+      display: none;
+    }
+  }
+  #face {
+    .category__link {
+      display: none;
+    }
+  }
   &__link {
     margin-bottom: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 0px 10px 10px 10px;
     width: calc(33.33333% - 10px);
-    display: flex;
     align-items: center;
     margin-left: 10px;
     padding: 8px 13px;
     transition: all linear .2s;
     min-height: 53px;
+    display: flex;
     &--padding {
       padding-left: 30px;
       padding-right: 30px;
