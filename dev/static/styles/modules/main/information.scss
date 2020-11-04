@@ -69,6 +69,60 @@
   &__text {
     margin-bottom: 20px;
   }
+  &__content {
+    h2:not(.information__title) {
+      font-size: 24px;
+      line-height: 33px;
+      display: flex;
+      align-items: center;
+      margin-top: 25px;
+      font-weight: 400;
+      margin-bottom: 10px;
+      &::before {
+        content: '';
+        width: 18px;
+        height: 10px;
+        flex-shrink: 0;
+        transform: rotate(-90deg);
+        margin-right: 20px;
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='transparent' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 0.5L6 5.5L11 0.5' stroke='%23ff9900'/%3E%3C/svg%3E ");
+        background-repeat: no-repeat;
+        background-position:  center;
+        background-size: cover;
+      }
+    }
+    p {
+      margin-top: 25px;
+    }
+    ul, ol {
+      margin-top: 25px;
+      counter-reset: item;
+    }
+    li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &::before {
+        content: counter(item) ".";
+        counter-increment: item;
+        display: inline-block;
+        font-weight: 700;
+        margin-right: 10px;
+      }
+    }
+    h3 {
+      font-size: 20px;
+      line-height: 28px;
+      display: flex;
+      align-items: center;
+      margin-top: 25px;
+      font-weight: 400;
+    }
+  }
+
 }
 @media (max-width: 1030px) {
   .information__tab {
@@ -158,6 +212,7 @@
   .information__tab-icon {
     display: block;
   }
+
 }
 @media (max-width: 360px) {
   .information__box {
