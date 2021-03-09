@@ -1,3 +1,28 @@
+function canUseWebp() {
+    let elem = document.createElement('canvas');
+    if (!!(elem.getContext && elem.getContext('2d'))) {
+        return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
+    }
+    return false;
+}
+window.onload = function () {
+    let images = document.querySelectorAll('[data-bg]');
+    for (let i = 0; i < images.length; i++) {
+        let image = images[i].getAttribute('data-bg');
+        images[i].style.backgroundImage = 'url(' + image + ')';
+    }
+
+    let isitFirefox = window.navigator.userAgent.match(/Firefox\/([0-9]+)\./);
+    let firefoxVer = isitFirefox ? parseInt(isitFirefox[1]) : 0;
+
+    if (canUseWebp() || firefoxVer >= 65) {
+        let imagesWebp = document.querySelectorAll('[data-bg-webp]');
+        for (let i = 0; i < imagesWebp.length; i++) {
+            let imageWebp = imagesWebp[i].getAttribute('data-bg-webp');
+            imagesWebp[i].style.backgroundImage = 'url(' + imageWebp + ')';
+        }
+    }
+};
 $(window).on('load', function () {
     const body = $('body')
     const header = $('.header__inner')
@@ -335,7 +360,38 @@ $(function () {
             }
         })
     }
+    const scrollCounter = () => {
+        let counted = 0;
+        const section = $('.statistics, .consult-chat')
+        if (section.length > 0)
+            $(window).scroll(function () {
+                let oTop = section.offset().top - window.innerHeight;
+                if (counted === 0 && $(window).scrollTop() > oTop) {
+                    $('.statistics__item-number, .consult-chat__number, .consult-chat__statistic > strong').each(function () {
+                        const $this = $(this),
+                            countTo = $this.attr('data-number');
+                        $({
+                            countNum: $this.text()
+                        }).animate({
+                            countNum: countTo
+                        }, {
+                            duration: 2000,
+                            easing: 'swing',
+                            step: function () {
+                                $this.text(Math.floor(this.countNum));
+                            },
+                            complete: function () {
+                                $this.text(this.countNum);
+                            }
 
+                        });
+                    });
+                    counted = 1;
+                }
+
+            });
+    }
+    scrollCounter()
     menu()
     headerUser()
     certificatesSlider()
@@ -348,6 +404,20 @@ $(function () {
     headerSearch()
     documentsItems()
     radioDisabled()
+    const performanceSlider = () => {
+        $('.performance__slider').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            fade: true,
+            appendArrows: '.performance__arrows',
+            touchThreshold: 40,
+            rows: 0,
+            adaptiveHeight: true,
+            nextArrow: '<button class="section-arrow section-arrow--bg-green section-arrow--next"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>',
+            prevArrow: '<button class="section-arrow section-arrow--bg-green section-arrow--prev"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>',
+        })
+    }
+    performanceSlider()
 })
 const headerSticky = () => {
     let scrollPrev = 0;

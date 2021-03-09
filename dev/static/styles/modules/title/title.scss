@@ -6,6 +6,9 @@
   font-family: 'Mont', "Open Sans", sans-serif;
   font-weight: 900;
   display: block;
+  span {
+    color: var(--color-green);
+  }
   &--color {
     &-white {
       color: var(--color-white);

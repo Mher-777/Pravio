@@ -40,8 +40,16 @@
         background-color: var(--color-btn);
       }
     }
+    &-green {
+      border-color: var(--color-green);
+
+      &:hover {
+        background-color: var(--color-green);
+      }
+    }
     &-radius {
       border-radius: 20px;
+      padding: 13px 20px;
     }
   }
   &--bg {
