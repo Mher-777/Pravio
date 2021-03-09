@@ -23,6 +23,7 @@ footer {
   &__icons {
     display: flex;
     align-items: center;
+    margin-top: 30px;
     &-link {
       margin-right: 20px;
       &:last-child {
@@ -94,6 +95,7 @@ footer {
 @media (max-width: 555px) {
   .footer__icons {
     justify-content: center;
+    margin-top: 0;
   }
   .footer__col {
     &:nth-child(1) {
