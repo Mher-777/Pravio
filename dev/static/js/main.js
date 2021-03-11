@@ -418,6 +418,22 @@ $(function () {
         })
     }
     performanceSlider()
+    const formalizedSlider = () => {
+        $('.formalized__slider').slick({
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            vertical: true,
+            swipe: false,
+            appendArrows: '.formalized__arrows',
+            infinite: false,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            rows: 0,
+            nextArrow: '<button class="section-arrow section-arrow--bg-green section-arrow--next"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>',
+            prevArrow: '<button class="section-arrow section-arrow--bg-green section-arrow--prev"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>',
+        })
+    }
+    formalizedSlider()
 })
 const headerSticky = () => {
     let scrollPrev = 0;
