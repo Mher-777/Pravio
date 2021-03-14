@@ -434,6 +434,38 @@ $(function () {
         })
     }
     formalizedSlider()
+    const specialistsSlider = () => {
+        $('.specialists__slider').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            appendArrows: '.specialists__arrows',
+            rows: 0,
+            touchThreshold: 40,
+            nextArrow: '<button class="section-arrow section-arrow--bg-green section-arrow--next"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>',
+            prevArrow: '<button class="section-arrow section-arrow--bg-green section-arrow--prev"><svg class="icon icon-arrow "><use xlink:href="static/images/sprite/symbol/sprite.svg#arrow"></use></svg></button>',
+            responsive: [
+                {
+                    breakpoint: 973,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        slidesToShow: 1,
+                        adaptiveHeight: true
+                    }
+                }
+            ]
+        })
+    }
+    specialistsSlider()
+    $(".js-range-slider").ionRangeSlider({
+        hide_min_max: true,
+        skin: "round",
+        prettify_separator: ' ',
+    });
 })
 const headerSticky = () => {
     let scrollPrev = 0;

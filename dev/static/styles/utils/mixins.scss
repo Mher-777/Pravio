@@ -7,7 +7,13 @@
   background-size: cover;
   background-position: center;
 }
-
+@mixin placeholder {
+  ::placeholder {@content}
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}
 $units: 1px !default;
 @mixin screen($res-first, $res-last: $res-first) {
   @if $res-first == $res-last {

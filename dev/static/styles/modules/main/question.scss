@@ -4,7 +4,7 @@
   position: relative;
   z-index: 1;
   &::before {
-    content: 'ПРАВИО';
+    content: attr(data-decor);
     position: absolute;
     font-weight: 900;
     //font-size: 288px;
