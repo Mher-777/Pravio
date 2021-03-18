@@ -461,6 +461,13 @@ $(function () {
         })
     }
     specialistsSlider()
+    const fileUpload = () => {
+        $(".file input[type=file]").change(function () {
+            let filename = $(this).val().replace(/.*\\/, "");
+            $(this).closest('.file').find('.file__text').html(filename);
+        });
+    }
+    fileUpload()
     $(".js-range-slider").ionRangeSlider({
         hide_min_max: true,
         skin: "round",
